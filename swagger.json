@@ -1,0 +1,122 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "description": "API for User Authentication",
+      "title": "Auth API"
+    },
+    "host": "localhost:8000",
+    "securityDefinitions": {
+        "jwt": {
+          "in": "header",
+          "name": "Authorization",
+          "type": "apiKey"
+        }
+      },
+  
+    "paths": {
+      "/api/auth/register": {
+        "post": {
+          "tags": ["Register"],
+          "summery": "Register",
+          "description": "Register User",
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Register User",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "password":{
+                    "type":"string"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "User register successfully"
+            },
+            "400":{
+                "description":"All fields are required"
+            },
+             "409":{
+              "description":"User already exist"
+             },
+            "500": {
+              "description": "Something went wrong!"
+            }
+          }
+        }
+      },
+      "/api/auth/login": {
+        "post": {
+          "tags": ["Login"],
+          "summery": "Login",
+          "description": "User Login",
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Login User",
+              "schema": {
+                "type": "object",
+                "properties": {
+
+                  "email": {
+                    "type": "string"
+                  },
+                  "password":{
+                    "type":"string"
+                  }
+                }
+              }
+            }
+          ],
+  
+          "responses": {
+            "200": {
+              "description": "User login successfully"
+            },
+            "400":{
+                "description":"Both fields are required"
+            },
+            "404": {
+              "description": "User doest not exist"
+            },
+            "500": {
+              "description": "Something went wrong!"
+            }
+          }
+        }
+      },
+      "/api/auth/logout": {
+        "get": {
+          "tags": ["Logout"],
+          "summery": "Logout User",
+          "description": "Login User",
+          "security": [{ "jwt": {} }],
+          
+          "responses": {
+            "200": {
+              "description": "User logout successfully"
+            },
+  
+            "500": {
+              "description": "Something went wrong!"
+            }
+          }
+        }
+      }
+      
+    }
+  }
+  
