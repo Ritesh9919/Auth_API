@@ -5,7 +5,7 @@
       "description": "API for User Authentication",
       "title": "Auth API"
     },
-    "host": "localhost:8000",
+    "host": "auth-api-zwqy.onrender.com/api/docs/",
     "securityDefinitions": {
         "jwt": {
           "in": "header",
