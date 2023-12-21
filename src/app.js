@@ -26,6 +26,9 @@ app.use(express.urlencoded({extended:true,limit:'16kb'}));
 app.use(cookieParser());
 
 
+app.get('/', (req, res)=> {
+    res.send('<h1>Auth API</h1><a href="/api/docs">Documentaion</a>');
+})
 
 // routers
 
