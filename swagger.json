@@ -5,7 +5,7 @@
       "description": "API for User Authentication",
       "title": "Auth API"
     },
-    "host": "auth-api-zwqy.onrender.com/api/docs/",
+    "host": "auth-api-zwqy.onrender.com",
     "securityDefinitions": {
         "jwt": {
           "in": "header",
